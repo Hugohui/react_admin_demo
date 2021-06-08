@@ -1,0 +1,13 @@
+.header {
+    display: flex;
+    color: #fff;
+    .logo{
+        width: 100px;
+    }
+    .header-menu {
+        flex: 1;
+    }
+    .user-info {
+        width: 100px;
+    }
+}
