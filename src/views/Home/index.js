@@ -4,11 +4,15 @@
  */
 
 import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
 
 function Home() {
     const [count, setCout] = useState(0)
     const [name, setName] = useState('HUA')
+
+    let location = useLocation()
+    console.log(location.pathname);
 
     // seEffect Hook 看做 componentDidMount，componentDidUpdate 和 componentWillUnmount 这三个函数的组合
     useEffect(() => {
