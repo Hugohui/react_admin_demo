@@ -1,5 +1,6 @@
 import Login from '../views/Login'
-import Home from '../views/Home'
+import HookStateEffect from '../views/Hook_useState_useEffect'
+import HookReducer from '../views/Hook_useReducer'
 
 // eslint-disable-next-line
 export default [
@@ -15,27 +16,27 @@ export default [
   {
     path: '/home',
     name: 'home',
-    component: Home,
+    component: HookStateEffect,
     mate: {
-      title: '首页',
+      title: 'Hook useStat/useEffect',
     },
-    children: [
-      {
-        path: 'home-1',
-        name: 'home-1',
-        component: Home,
-        mate: {
-          title: '首页-1',
-        }
-      },
-      {
-        path: 'home-2',
-        name: 'home-2',
-        component: Home,
-        mate: {
-          title: '首页-2',
-        }
-      }
-    ]
+    // children: [
+    //   {
+    //     path: 'home-1',
+    //     name: 'home-1',
+    //     component: Home,
+    //     mate: {
+    //       title: '首页-1',
+    //     }
+    //   }
+    // ]
+  },
+  {
+    path: '/home-2',
+    name: 'home-2',
+    component: HookReducer,
+    mate: {
+      title: 'Hook useReducer',
+    }
   }
 ]
