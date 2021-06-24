@@ -1,6 +1,7 @@
 import Login from '../views/Login'
 import HookStateEffect from '../views/Hook_useState_useEffect'
 import HookReducer from '../views/Hook_useReducer'
+import HookContext from '../views/Hook_useContext'
 
 // eslint-disable-next-line
 export default [
@@ -37,6 +38,14 @@ export default [
     component: HookReducer,
     mate: {
       title: 'Hook useReducer',
+    }
+  },
+  {
+    path: '/useContext',
+    name: 'useContext',
+    component: HookContext,
+    mate: {
+      title: 'Hook useContext',
     }
   }
 ]
