@@ -1,13 +1,13 @@
 import { Component, Fragment } from 'react'
+import { Link } from 'react-router-dom'
 import { Layout, Menu } from 'antd'
-import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 
-import SidebarItem from './SidebarItem'
 import routerList from '../../../router'
 
 
 const { Sider } = Layout
 const { SubMenu } = Menu
+
 
 class SideBar extends Component {
     constructor(props) {
@@ -21,16 +21,44 @@ class SideBar extends Component {
             <Fragment>
                 <Sider width={200} className="site-layout-background">
                     <Menu
-                    mode="inline"
-                    style={{ height: '100%', borderRight: 0 }}
+                        mode="inline"
+                        style={{ height: '100%', borderRight: 0 }}
                     >
-                        {routerList.map(route => {
-                            return <SidebarItem route={route} key={route.path}></SidebarItem>
-                        })}
+                        {this.getMenuNodes(routerList)}
                     </Menu>
                 </Sider>
             </Fragment>
         )
+    }
+    getMenuNodes = (data) => {
+        return data.map(item => {
+            if (item.mate.hidden) {
+                return ''
+            } else if (!item.children) {
+                return (
+                    <Menu.Item key={item.path}>
+                        <Link to={item.path}>
+                            {/* <Icon type={item.icon}></Icon> */}
+                            <span>{item.mate.title}</span>
+                        </Link>
+                    </Menu.Item>
+                )
+            } else {
+                return (
+                    <SubMenu
+                        key={item.path}
+                        title={
+                            <span>
+                                {/* <Icon type={item.icon}></Icon> */}
+                                <span>{item.mate.title}</span>
+                            </span>
+                        }
+                    >
+                        {this.getMenuNodes(item.children)}
+                    </SubMenu>
+                )
+            }
+        })
     }
 }
 

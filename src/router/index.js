@@ -7,25 +7,34 @@ export default [
     path: "/",
     name: "login",
     title: '登录',
-    component: Login
+    component: Login,
+    mate: {
+      hidden: true
+    }
   },
   {
     path: '/home',
     name: 'home',
-    title: '首页',
     component: Home,
+    mate: {
+      title: '首页',
+    },
     children: [
       {
         path: 'home-1',
         name: 'home-1',
-        title: '首页-1',
         component: Home,
+        mate: {
+          title: '首页-1',
+        }
       },
       {
         path: 'home-2',
         name: 'home-2',
-        title: '首页-2',
         component: Home,
+        mate: {
+          title: '首页-2',
+        }
       }
     ]
   }

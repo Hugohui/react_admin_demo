@@ -19,18 +19,18 @@ class AppMain extends Component {
                     margin: 0,
                     minHeight: 280,
                 }}
-                >
+            >
                 <Switch>
                     {routerList.map((route) => {
-                    return (route.component ?
-                        <Route exact path={route.path} key={route.path}
-                        render={() => {
-                            const Component = withRouter(connect(mapStateToProps)(route.component));
-                            return <div className="layout_text" id="layout_text">
-                                <Component/>
-                            </div>;
-                        }} /> : ''
-                    );
+                        return (route.component ?
+                            <Route exact path={route.path} key={route.path}
+                                render={() => {
+                                    const Component = withRouter(connect(mapStateToProps)(route.component));
+                                    return <div className="layout_text" id="layout_text">
+                                        <Component />
+                                    </div>;
+                                }} /> : ''
+                        );
                     })}
                     <Redirect to={routerList[1].path} />
                 </Switch>
